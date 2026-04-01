@@ -2,6 +2,26 @@
 
 A comprehensive JavaFX-based education platform designed to support **SDG 4: Quality Education** by providing students and instructors with easy access to learning resources anytime and anywhere.
 
+## 🚀 Quick Start (Choose Your Version)
+
+### 🌐 Web Version (Recommended - Always Works)
+```bash
+cd web
+npm install
+npm start
+```
+Access at: http://localhost:3000
+
+### 🖥️ Desktop Version (Requires GUI Environment)
+```bash
+./run.sh
+```
+
+### 🤖 Smart Launcher (Auto-Detects Environment)
+```bash
+./launch.sh
+```
+
 ## Features
 
 ### ✅ User Authentication & Management
