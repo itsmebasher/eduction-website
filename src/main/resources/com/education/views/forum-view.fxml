@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.education.controllers.ForumViewController"
+            prefHeight="700.0" prefWidth="1000.0">
+    <top>
+        <VBox style="-fx-background-color: #2E5090; -fx-padding: 15;">
+            <Label fx:id="forumTitleLabel" text="Discussion Forum" style="-fx-text-fill: white; -fx-font-size: 22; -fx-font-weight: bold;"/>
+            <Label text="Engage with the learning community" style="-fx-text-fill: #B0C4DE;"/>
+        </VBox>
+    </top>
+    <left>
+        <VBox style="-fx-padding: 15; -fx-border-right: 1 solid #ddd; -fx-min-width: 200;">
+            <Label text="Discussions" style="-fx-font-weight: bold; -fx-font-size: 14;"/>
+            <ListView fx:id="forumListView" prefHeight="400" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </left>
+    <center>
+        <VBox spacing="10" style="-fx-padding: 15;">
+            <ListView fx:id="postListView" prefHeight="300" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </center>
+    <right>
+        <VBox spacing="10" style="-fx-padding: 15; -fx-border-left: 1 solid #ddd; -fx-min-width: 250;">
+            <Label text="New Post" style="-fx-font-weight: bold; -fx-font-size: 12;"/>
+            <TextField fx:id="postTitleField" promptText="Post title"/>
+            <TextArea fx:id="postContentArea" promptText="Write your message..." prefRowCount="8" wrapText="true"/>
+            <Button text="Post Message" onAction="#handlePostMessage" prefWidth="100"/>
+            <Button text="Like Selected" onAction="#handleLikePost" prefWidth="100"/>
+        </VBox>
+    </right>
+</BorderPane>

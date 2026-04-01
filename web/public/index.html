@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Platform</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="navbar" id="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1>🎓 Education Platform</h1>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#" onclick="showPage('dashboard')">Dashboard</a></li>
+                    <li><a href="#" onclick="showPage('courses')">Courses</a></li>
+                    <li><a href="#" onclick="showPage('quizzes')">Quizzes</a></li>
+                    <li><a href="#" onclick="showPage('forums')">Forums</a></li>
+                    <li><a href="#" onclick="showPage('videos')">Videos</a></li>
+                    <li><span id="userInfo" class="user-info"></span></li>
+                    <li><button onclick="logout()" class="btn-logout">Logout</button></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Auth Page -->
+            <div id="authPage" class="page active">
+                <div class="auth-container">
+                    <div class="auth-box">
+                        <h2>Education Platform</h2>
+                        <p class="subtitle">Quality Education for All</p>
+                        
+                        <!-- Login Form -->
+                        <form id="loginForm" class="auth-form">
+                            <h3>Login</h3>
+                            <input type="email" placeholder="Email" id="loginEmail" required>
+                            <input type="password" placeholder="Password" id="loginPassword" required>
+                            <button type="submit" class="btn-primary">Login</button>
+                            <p class="toggle-form">Don't have an account? <a href="#" onclick="toggleAuthForm()">Register</a></p>
+                        </form>
+
+                        <!-- Register Form -->
+                        <form id="registerForm" class="auth-form hidden">
+                            <h3>Create Account</h3>
+                            <input type="text" placeholder="Full Name" id="registerName" required>
+                            <input type="email" placeholder="Email" id="registerEmail" required>
+                            <input type="password" placeholder="Password" id="registerPassword" required>
+                            <input type="password" placeholder="Confirm Password" id="registerConfirm" required>
+                            <select id="registerRole" required>
+                                <option value="">Select Role</option>
+                                <option value="STUDENT">Student</option>
+                                <option value="INSTRUCTOR">Instructor</option>
+                            </select>
+                            <button type="submit" class="btn-primary">Register</button>
+                            <p class="toggle-form">Already have an account? <a href="#" onclick="toggleAuthForm()">Login</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Page -->
+            <div id="dashboardPage" class="page">
+                <div class="container">
+                    <h2>Welcome to Education Platform</h2>
+                    <p>Explore courses, take quizzes, participate in forums, and watch video lessons.</p>
+                    
+                    <div class="dashboard-grid">
+                        <div class="card" onclick="showPage('courses')">
+                            <h3>📚 Courses</h3>
+                            <p>Browse available courses</p>
+                        </div>
+                        <div class="card" onclick="showPage('quizzes')">
+                            <h3>📝 Quizzes</h3>
+                            <p>Test your knowledge</p>
+                        </div>
+                        <div class="card" onclick="showPage('forums')">
+                            <h3>💬 Forums</h3>
+                            <p>Engage with community</p>
+                        </div>
+                        <div class="card" onclick="showPage('videos')">
+                            <h3>🎥 Videos</h3>
+                            <p>Learn from videos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Courses Page -->
+            <div id="coursesPage" class="page">
+                <div class="container">
+                    <h2>Available Courses</h2>
+                    <div id="coursesList" class="items-list">
+                        <p class="loading">Loading courses...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quizzes Page -->
+            <div id="quizzesPage" class="page">
+                <div class="container">
+                    <h2>Quizzes</h2>
+                    <div id="quizzesList" class="items-list">
+                        <p class="loading">Loading quizzes...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Taking Page -->
+            <div id="quizTakingPage" class="page">
+                <div class="container">
+                    <button onclick="showPage('quizzes')" class="btn-secondary" style="margin-bottom: 1rem;">← Back to Quizzes</button>
+                    <div id="quizContent">
+                        <h2 id="quizTitle">Quiz Title</h2>
+                        <div id="quizQuestions" class="quiz-questions">
+                            <p class="loading">Loading quiz...</p>
+                        </div>
+                        <button id="submitQuiz" class="btn-primary" style="display: none; margin-top: 2rem;">Submit Quiz</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Forums Page -->
+            <div id="forumsPage" class="page">
+                <div class="container">
+                    <h2>Discussion Forums</h2>
+                    <div id="forumsList" class="items-list">
+                        <p class="loading">Loading forums...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Forum Details Page -->
+            <div id="forumDetailsPage" class="page">
+                <div class="container">
+                    <button onclick="showPage('forums')" class="btn-secondary" style="margin-bottom: 1rem;">← Back to Forums</button>
+                    <div id="forumDetails">
+                        <h2 id="forumTitle">Forum Title</h2>
+                        <p id="forumDescription">Forum description</p>
+                        <div id="forumPosts" class="posts-list">
+                            <p class="loading">Loading posts...</p>
+                        </div>
+                        <div class="new-post-form" id="newPostForm" style="margin-top: 2rem; display: none;">
+                            <h3>Start a New Discussion</h3>
+                            <form id="postForm">
+                                <input type="text" id="postTitle" placeholder="Discussion Title" required>
+                                <textarea id="postContent" placeholder="Share your thoughts..." rows="4" required></textarea>
+                                <button type="submit" class="btn-primary">Post Discussion</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Videos Page -->
+            <div id="videosPage" class="page">
+                <div class="container">
+                    <h2>Video Lessons</h2>
+                    <div id="videosList" class="items-list">
+                        <p class="loading">Loading videos...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2026 Education Platform. Supporting SDG 4: Quality Education.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+/* Mobile-first responsive design for all screen sizes */
+
+/* Tablets (768px and up) */
+@media (max-width: 768px) {
+  .navbar .container {
+    padding: 0.5rem;
+  }
+
+  .nav-menu {
+    gap: 1rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .main-content {
+    padding: 1rem 0;
+  }
+}
+
+/* Phones (640px and below) */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1rem; }
+
+  /* Navigation Mobile */
+  .navbar {
+    padding: 0.75rem 0;
+  }
+
+  .nav-brand h1 {
+    font-size: 1.25rem;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .nav-menu li {
+    width: 100%;
+  }
+
+  .nav-menu a {
+    display: block;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .btn-logout {
+    width: 100%;
+  }
+
+  /* Auth Mobile */
+  .auth-container {
+    padding: 1rem;
+    min-height: 100vh;
+  }
+
+  .auth-box {
+    padding: 1.5rem;
+    width: 100%;
+  }
+
+  .auth-box h2 {
+    font-size: 1.5rem;
+  }
+
+  .auth-form input,
+  .auth-form select {
+    padding: 0.65rem;
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  .auth-form h3 {
+    font-size: 1rem;
+  }
+
+  /* Dashboard Mobile */
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .card h3 {
+    font-size: 1.25rem;
+  }
+
+  /* Items List Mobile */
+  .item {
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    border-left-width: 3px;
+  }
+
+  .item h4 {
+    font-size: 1rem;
+  }
+
+  /* Buttons Mobile */
+  .btn-primary {
+    padding: 0.65rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  /* Containers */
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .main-content {
+    padding: 1rem 0;
+  }
+
+  /* Typography adjustments for small screens */
+  p {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Touch-friendly spacing */
+  button, a, input, select {
+    min-height: 44px; /* iOS recommended */
+  }
+}
+
+/* Small phones (480px and below) */
+@media (max-width: 480px) {
+  .nav-brand h1 {
+    font-size: 1rem;
+  }
+
+  .auth-box {
+    padding: 1.25rem;
+    margin: 0 0.5rem;
+  }
+
+  .dashboard-grid {
+    gap: 0.75rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .item {
+    padding: 0.75rem;
+  }
+
+  .footer {
+    font-size: 0.85rem;
+    padding: 1.5rem 0;
+  }
+
+  /* Form inputs for better mobile experience */
+  .auth-form input,
+  .auth-form select {
+    margin-bottom: 0.75rem;
+  }
+
+  .user-info {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.75rem;
+  }
+}
+
+/* Landscape mode adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .main-content {
+    min-height: auto;
+  }
+
+  .auth-box {
+    padding: 1rem;
+  }
+
+  h1, h2 {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Large tablets and desktops (1024px and up) */
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .nav-menu {
+    gap: 2.5rem;
+  }
+
+  .main-content {
+    padding: 3rem 0;
+  }
+}
+
+/* Extra large screens (1440px and up) */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+  }
+
+  .dashboard-grid {
+    gap: 2.5rem;
+  }
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .auth-form input,
+  .auth-form select {
+    font-size: 16px; /* Prevents zoom on input focus */
+  }
+
+  body {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  a, button {
+    -webkit-user-select: none;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1a1a1a;
+    --surface: #2d2d2d;
+    --text: #e0e0e0;
+    --border: #444;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text);
+  }
+
+  .auth-box,
+  .card,
+  .item {
+    background: var(--surface);
+  }
+
+  .auth-form input,
+  .auth-form select {
+    background: #3d3d3d;
+    color: var(--text);
+    border-color: var(--border);
+  }
+}

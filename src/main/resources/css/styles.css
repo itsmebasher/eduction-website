@@ -1,0 +1,46 @@
+/* Main Application Styles */
+.root {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-font-size: 12;
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: #333333;
+}
+
+/* Buttons */
+.button {
+    -fx-padding: 10px 20px;
+    -fx-font-size: 14;
+    -fx-background-color: #2E5090;
+    -fx-text-fill: white;
+    -fx-border-radius: 5;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #1E3A60;
+}
+
+.button:pressed {
+    -fx-background-color: #0F1F40;
+}
+
+/* VBox */
+.vbox {
+    -fx-spacing: 10;
+}
+
+/* Header Styling */
+#headerLabel {
+    -fx-font-size: 28;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+/* Container Background */
+.container {
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 20;
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.education.controllers.AuthenticationController"
+      spacing="15" style="-fx-padding: 20;" alignment="CENTER">
+    
+    <Label text="Education Platform" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #2E5090;" alignment="CENTER"/>
+    <Label text="Quality Education for All" style="-fx-font-size: 14; -fx-text-fill: #666;" alignment="CENTER"/>
+    
+    <TabPane fx:id="authTabPane" tabClosingPolicy="UNAVAILABLE" prefWidth="400" prefHeight="350">
+        <!-- Login Tab -->
+        <Tab text="Login" closable="false">
+            <VBox spacing="15" style="-fx-padding: 20;">
+                <TextField fx:id="loginEmailField" promptText="Email" prefWidth="300"/>
+                <PasswordField fx:id="loginPasswordField" promptText="Password" prefWidth="300"/>
+                <Button text="Login" onAction="#handleLogin" prefWidth="300" style="-fx-padding: 10; -fx-font-size: 14;"/>
+                <Button text="Forgot Password?" onAction="#handleForgotPassword" prefWidth="300"/>
+            </VBox>
+        </Tab>
+        
+        <!-- Register Tab -->
+        <Tab text="Register" closable="false">
+            <VBox spacing="15" style="-fx-padding: 20;">
+                <TextField fx:id="registerNameField" promptText="Full Name" prefWidth="300"/>
+                <TextField fx:id="registerEmailField" promptText="Email" prefWidth="300"/>
+                <PasswordField fx:id="registerPasswordField" promptText="Password" prefWidth="300"/>
+                <PasswordField fx:id="registerConfirmPasswordField" promptText="Confirm Password" prefWidth="300"/>
+                <ComboBox fx:id="roleComboBox" prefWidth="300"/>
+                <Button text="Register" onAction="#handleRegister" prefWidth="300" style="-fx-padding: 10; -fx-font-size: 14;"/>
+            </VBox>
+        </Tab>
+    </TabPane>
+</VBox>

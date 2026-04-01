@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.web.WebView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.education.controllers.VideoViewController"
+            prefHeight="700.0" prefWidth="1100.0">
+    <top>
+        <VBox style="-fx-background-color: #2E5090; -fx-padding: 15;">
+            <Label fx:id="videoTitleLabel" text="Video Lessons" style="-fx-text-fill: white; -fx-font-size: 22; -fx-font-weight: bold;"/>
+            <Label text="Learn through high-quality video content" style="-fx-text-fill: #B0C4DE;"/>
+        </VBox>
+    </top>
+    <left>
+        <VBox style="-fx-padding: 15; -fx-border-right: 1 solid #ddd; -fx-min-width: 200;">
+            <Label text="Videos" style="-fx-font-weight: bold; -fx-font-size: 14;"/>
+            <ListView fx:id="videoListView" prefHeight="400" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </left>
+    <center>
+        <VBox spacing="10" style="-fx-padding: 15;">
+            <WebView fx:id="videoPlayer" prefHeight="350"/>
+            <HBox spacing="10">
+                <Button text="Play" onAction="#handlePlayVideo" prefWidth="80"/>
+                <Button text="Pause" onAction="#handlePauseVideo" prefWidth="80"/>
+                <Button text="Download" onAction="#handleDownloadVideo" prefWidth="80"/>
+            </HBox>
+        </VBox>
+    </center>
+    <right>
+        <VBox spacing="10" style="-fx-padding: 15; -fx-border-left: 1 solid #ddd; -fx-min-width: 250;">
+            <Label fx:id="videoDurationLabel" text="Duration: 00:00:00" style="-fx-font-weight: bold;"/>
+            <Label fx:id="videoViewsLabel" text="Views: 0" style="-fx-font-weight: bold;"/>
+            <TextArea fx:id="videoDescriptionArea" wrapText="true" prefRowCount="10" editable="false"/>
+            <Button text="View All Videos" onAction="#handleViewAllVideos" prefWidth="180"/>
+        </VBox>
+    </right>
+</BorderPane>
