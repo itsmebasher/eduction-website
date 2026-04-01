@@ -156,11 +156,11 @@ function insertSampleData() {
     { id: 'q6', quiz_id: 'quiz3', question_text: 'What is the time complexity of binary search?', option_a: 'O(n)', option_b: 'O(log n)', option_c: 'O(n²)', option_d: 'O(1)', correct_answer: 'B' }
   ];
   const sampleVideos = [
-    { id: 'video1', course_id: 'course1', title: 'What is Programming?', description: 'Introduction to programming concepts and why they matter.', video_url: 'https://www.youtube.com/embed/dQw4w9WgXcQ', instructor_id: 'user1', duration_seconds: 900, view_count: 125 },
-    { id: 'video2', course_id: 'course1', title: 'Variables and Data Types', description: 'Learn about different data types and how to use variables.', video_url: 'https://www.youtube.com/embed/dQw4w9WgXcQ', instructor_id: 'user1', duration_seconds: 720, view_count: 98 },
-    { id: 'video3', course_id: 'course2', title: 'HTML Basics', description: 'Structure your web pages with HTML elements.', video_url: 'https://www.youtube.com/embed/dQw4w9WgXcQ', instructor_id: 'user2', duration_seconds: 600, view_count: 87 },
-    { id: 'video4', course_id: 'course2', title: 'CSS Styling', description: 'Make your websites beautiful with CSS.', video_url: 'https://www.youtube.com/embed/dQw4w9WgXcQ', instructor_id: 'user2', duration_seconds: 800, view_count: 76 },
-    { id: 'video5', course_id: 'course3', title: 'Arrays and Lists', description: 'Understanding array data structures.', video_url: 'https://www.youtube.com/embed/dQw4w9WgXcQ', instructor_id: 'user1', duration_seconds: 650, view_count: 54 }
+    { id: 'video1', course_id: 'course1', title: 'What is Programming?', description: 'Introduction to programming concepts and why they matter.', video_url: 'https://www.youtube.com/embed/xbFoZhC_wdY', instructor_id: 'user1', duration_seconds: 900, view_count: 125 },
+    { id: 'video2', course_id: 'course1', title: 'Variables and Data Types', description: 'Learn about different data types and how to use variables.', video_url: 'https://www.youtube.com/embed/ghCbURMWBD8', instructor_id: 'user1', duration_seconds: 720, view_count: 98 },
+    { id: 'video3', course_id: 'course2', title: 'HTML Basics', description: 'Structure your web pages with HTML elements.', video_url: 'https://www.youtube.com/embed/vIoO52MdZFE', instructor_id: 'user2', duration_seconds: 600, view_count: 87 },
+    { id: 'video4', course_id: 'course2', title: 'CSS Styling', description: 'Make your websites beautiful with CSS.', video_url: 'https://www.youtube.com/embed/qyomWr_C_jA', instructor_id: 'user2', duration_seconds: 800, view_count: 76 },
+    { id: 'video5', course_id: 'course3', title: 'Arrays and Lists', description: 'Understanding array data structures.', video_url: 'https://www.youtube.com/embed/O9v10jQkm5c', instructor_id: 'user1', duration_seconds: 650, view_count: 54 }
   ];
 
   // Insert users
