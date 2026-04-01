@@ -90,18 +90,24 @@ function logout() {
 }
 
 function checkAuthStatus() {
+  console.log('🔍 Checking authentication status...');
   const savedUser = localStorage.getItem('user');
   if (savedUser) {
     currentUser = JSON.parse(savedUser);
+    console.log(`✅ User logged in: ${currentUser.name} (${currentUser.role})`);
     updateUI();
     showPage('dashboard');
   } else {
+    console.log('ℹ️ No user logged in. Showing auth page.');
     updateUI();
   }
 }
 
 function showPage(pageName) {
+  console.log(`📄 Navigating to page: ${pageName}`);
+  
   if (!currentUser && pageName !== 'auth') {
+    console.warn('⚠️ User not logged in. Redirecting to auth page.');
     showPage('auth');
     return;
   }
@@ -124,20 +130,44 @@ function showPage(pageName) {
   const pageId = pageMap[pageName];
   if (pageId) {
     document.getElementById(pageId).classList.add('active');
+    console.log(`✅ Page displayed: ${pageId}`);
     
     // Load data for the page
-    if (pageName === 'courses') loadCourses();
-    if (pageName === 'quizzes') loadQuizzes();
-    if (pageName === 'quizTaking') loadQuizTaking(currentQuizId);
-    if (pageName === 'forums') loadForums();
-    if (pageName === 'forumDetails') loadForumDetails(currentForumId);
-    if (pageName === 'videos') loadVideos();
+    if (pageName === 'courses') {
+      console.log('📚 Loading courses...');
+      loadCourses();
+    }
+    if (pageName === 'quizzes') {
+      console.log('📝 Loading quizzes...');
+      loadQuizzes();
+    }
+    if (pageName === 'quizTaking') {
+      console.log('🎯 Loading quiz...');
+      loadQuizTaking(currentQuizId);
+    }
+    if (pageName === 'forums') {
+      console.log('💬 Loading forums...');
+      loadForums();
+    }
+    if (pageName === 'forumDetails') {
+      console.log('📖 Loading forum details...');
+      loadForumDetails(currentForumId);
+    }
+    if (pageName === 'videos') {
+      console.log('🎥 Loading videos...');
+      loadVideos();
+    }
+  } else {
+    console.error(`❌ Page not found: ${pageId}`);
   }
 }
 
 async function loadCourses() {
   try {
+    console.log('Fetching courses from API...');
     const courses = await api.getCourses();
+    console.log(`✅ Received ${courses.length} courses`);
+    
     const html = courses.length > 0
       ? courses.map(c => `
           <div class="item">
@@ -148,13 +178,18 @@ async function loadCourses() {
         `).join('')
       : '<p class="loading">No courses available</p>';
     document.getElementById('coursesList').innerHTML = html;
+    console.log('✅ Courses displayed');
   } catch (error) {
+    console.error('❌ Error loading courses:', error);
     handleApiError(error);
   }
 }
 async function loadQuizzes() {
   try {
+    console.log('Fetching quizzes from API...');
     const quizzes = await api.getQuizzes();
+    console.log(`✅ Received ${quizzes.length} quizzes`);
+    
     const html = quizzes.length > 0
       ? quizzes.map(q => `
           <div class="item" onclick="takeQuiz('${q.id}')">
@@ -165,15 +200,19 @@ async function loadQuizzes() {
         `).join('')
       : '<p class="loading">No quizzes available</p>';
     document.getElementById('quizzesList').innerHTML = html;
+    console.log('✅ Quizzes displayed');
   } catch (error) {
+    console.error('❌ Error loading quizzes:', error);
     handleApiError(error);
   }
-}
 }
 
 async function loadForums() {
   try {
+    console.log('Fetching forums from API...');
     const forums = await api.getForums();
+    console.log(`✅ Received ${forums.length} forums`);
+    
     const html = forums.length > 0
       ? forums.map(f => `
           <div class="item" onclick="showForumDetails('${f.id}')">
@@ -184,7 +223,9 @@ async function loadForums() {
         `).join('')
       : '<p class="loading">No forums available</p>';
     document.getElementById('forumsList').innerHTML = html;
+    console.log('✅ Forums displayed');
   } catch (error) {
+    console.error('❌ Error loading forums:', error);
     handleApiError(error);
   }
 }

@@ -67,8 +67,12 @@ const api = {
   }
 };
 
-// Error handler
+// Error handler with better logging
 function handleApiError(error) {
-  console.error('API Error:', error);
-  alert('An error occurred. Please try again.');
+  console.error('❌ API Error:', error);
+  console.error('Error details:', {
+    message: error.message,
+    stack: error.stack
+  });
+  alert('An error occurred. Please check the browser console (F12) for details and try again.');
 }
